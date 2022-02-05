@@ -9,7 +9,7 @@
         <p class="feed-subscribe">
           <a href="{{ get_url(path=config.feed_filename) }}">
             <svg class="svg-icon orange">
-              <use xlink:href="assets/minima-social-icons.svg#rss"></use>
+              <use xlink:href="{{ get_url(path="assets/minima-social-icons.svg#rss") }}"></use>
             </svg><span>Subscribe</span>
           </a>
         </p>
@@ -28,6 +28,10 @@
       <div class="footer-col">
         <p>{{ config.description | escape }}</p>
       </div>
+    </div>
+
+    <div class="social-links">
+      {%- include "social.html" -%}
     </div>
 
   </div>

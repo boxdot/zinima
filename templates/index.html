@@ -10,7 +10,9 @@
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
 
-        {%- include "home.html" -%}
+        {%- block content -%}
+        {% include "home.html" %}
+        {%- endblock -%}
 
       </div>
     </main>

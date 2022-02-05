@@ -1,25 +1,37 @@
-# The URL the site will be built for
+# the URL the site will be built for
 base_url = "https://example.com"
 
 title = "Your awesome title"
 description = """
   Write an awesome description for your new site here. You can edit this \
   line in config.toml. It will appear in your document head meta (for \
-  Google search results) and in your feed.xml site description.\
+  Google search results) and in your atom.xml site description.\
 """
 
 compile_sass = true
 
-# Whether to build a search index to be used later on by a JavaScript library
+# whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
+# generate Atom/RSS feed
 generate_feed = true
 
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+# whether to do syntax highlighting
+# theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
+highlight_theme = "zenburn"
 
 [extra]
 author = { name = "GitHub User", email = "your-email@domain.com" }
+# show summary of posts in posts listing
 show_summary = false
+# override the default date format
+# date_format = "%b %-d, %Y"
+
+# more examples of other social links are in `templates/social.html`
+[extra.social_links]
+github = "some-unknown-github-user"
+gitlab = { username = "github-user", instance = "gitlab.com" }
+twitter = "github-user"
+lastfm = "github-user"

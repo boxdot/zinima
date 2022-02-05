@@ -23,8 +23,8 @@
       <h2 class="post-list-heading">{{ page.list_title }}</h2>
     {%- endif -%}
     <ul class="post-list">
-      {%- set date_format = config.minima.date_format | default(value="%b %-d, %Y") -%}
-      {%- for page in section.pages | reverse -%}
+      {%- set date_format = config.extra.date_format | default(value="%b %-d, %Y") -%}
+      {%- for page in section.pages -%}
       <li>
         <span class="post-meta">{{ page.date | date(format=date_format) }}</span>
         <h3>

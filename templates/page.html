@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+{% block content %}
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    {%- set title = page.title | default(value=page.slug | replace(from="-", to=" ") | title) | escape %}
+    <h1 class="post-title p-name" itemprop="name headline">{{ title | escape }}</h1>
+    <p class="post-meta">
+      {%- set date_format = config.extra.date_format | default(value="%b %-d, %Y") -%}
+      <time class="dt-published" datetime="{{ page.date | date(format="%+") }}" itemprop="datePublished">
+        {{ page.date | date(format=date_format) }}
+      </time>
+      {%- if page.modified_date -%}
+        ~
+        {%- set mdate = page.modified_date | date(format="%+") -%}
+        <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
+          {{ mdate | date(format=date_format) }}
+        </time>
+      {%- endif -%}
+      {%- if page.author -%}
+        • {% for author in page.author %}
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
+            {%- if forloop.last == false %}, {% endif -%}
+        {% endfor %}
+      {%- endif -%}</p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ page.content | safe }}
+  </div>
+
+  {# {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+ #}
+  <a class="u-url" href="{{ page.permalink }}" hidden></a>
+</article>
+
+{% endblock content %}
