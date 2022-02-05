@@ -2,7 +2,7 @@
 
 A port of [Jekyll]'s [minima] theme to [Zola] with focus on being *accurate*.
 
-<img src="screenshot.png" width="100%" width="800">
+![screenshot](screenshot.png)
 
 ## Differences
 
