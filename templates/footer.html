@@ -1,0 +1,34 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ config.base_url }}"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="{{ config.base_url }}/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="{{ config.base_url }}/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      {{ config.author }}
+      {%- if config.author %}
+        <ul class="contact-list">
+          {% if config.author.name -%}
+            <li class="p-name">{{ config.author.name | escape }}</li>
+          {% endif -%}
+          {% if config.author.email -%}
+            <li><a class="u-email" href="mailto:{{ config.author.email }}">{{ config.author.email }}</a></li>
+          {%- endif %}
+        </ul>
+      {%- endif %}
+      </div>
+      <div class="footer-col">
+        <p>{{ config.description | escape }}</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
