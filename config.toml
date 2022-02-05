@@ -29,6 +29,9 @@ show_summary = false
 # override the default date format
 # date_format = "%b %-d, %Y"
 
+# list of section paths to show in the header as pages
+header_pages = ["_index.md", "about/_index.md"]
+
 # more examples of other social links are in `templates/social.html`
 [extra.social_links]
 github = "some-unknown-github-user"
