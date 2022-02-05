@@ -1,5 +1,16 @@
 {% extends "index.html" %}
 {% block content %}
+
+{%- if section.title -%}
+  <h1 class="post-title">{{ section.title }}</h1>
+{%- endif -%}
+
+{%- if section.content -%}
+<div class="post-content">
+  {{ section.content | safe }}
+</div>
+{%- endif -%}
+
 {% include "home.html" %}
 
 {% endblock content %}

@@ -2,9 +2,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {# TODO {%- seo -%}#}
   <link rel="stylesheet" href="{{ get_url(path="css/style.css") }}">
-  {# TODO {%- feed_meta -%}#}
+  {% if config.generate_feed %}
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="{{ get_url(path=config.feed_filename) }}">
+  {% endif %}
 
   {%- include "custom-head.html" -%}
 

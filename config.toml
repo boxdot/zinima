@@ -35,6 +35,4 @@ header_pages = ["_index.md", "about/_index.md"]
 # more examples of other social links are in `templates/social.html`
 [extra.social_links]
 github = "some-unknown-github-user"
-gitlab = { username = "github-user", instance = "gitlab.com" }
 twitter = "github-user"
-lastfm = "github-user"
