@@ -2,10 +2,11 @@
 
 A port of [Jekyll]'s [minima] theme to [Zola] with focus on being *accurate*.
 
+<img src="screenshot.png" width="100%" width="800">
+
 ## Differences
 
 * no Google analytics
-* no configuration of theme skin (override in `sass/css/style.scss` instead)
 * no SEO tag
 * code blocks are styled and highlighted natively by Zola
 * support for [last.fm](https://last.fm) in social links
