@@ -1,19 +1,19 @@
 # The URL the site will be built for
 base_url = "https://example.com"
+
 title = "Your awesome title"
 description = """
   Write an awesome description for your new site here. You can edit this \
   line in config.toml. It will appear in your document head meta (for \
   Google search results) and in your feed.xml site description.\
 """
+
 compile_sass = true
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
-[author]
-name = "boxdot"
-email = "d@zerovolt.org"
+generate_feed = true
 
 [markdown]
 # Whether to do syntax highlighting
@@ -21,4 +21,5 @@ email = "d@zerovolt.org"
 highlight_code = true
 
 [extra]
-# Put all your custom variables here
+author = { name = "GitHub User", email = "your-email@domain.com" }
+show_summary = false

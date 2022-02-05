@@ -12,6 +12,7 @@ demo = ""
 # be merged with user data, some kind of prefix or nesting is preferable
 # Use snake_casing to be consistent with the rest of Zola
 [extra]
+site = { author = "GitHub User", email = "your-email@domain.com" }
 
 [author]
 name = "boxdot"

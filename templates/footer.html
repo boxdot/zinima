@@ -1,25 +1,26 @@
 <footer class="site-footer h-card">
-  <data class="u-url" href="{{ config.base_url }}"></data>
+  <data class="u-url" href="{{ get_url(path="/") }}"></data>
 
   <div class="wrapper">
 
     <div class="footer-col-wrapper">
       <div class="footer-col">
+      {%- if config.generate_feed %}
         <p class="feed-subscribe">
-          <a href="{{ config.base_url }}/feed.xml">
+          <a href="{{ get_url(path=config.feed_filename) }}">
             <svg class="svg-icon orange">
-              <use xlink:href="{{ config.base_url }}/assets/minima-social-icons.svg#rss"></use>
+              <use xlink:href="assets/minima-social-icons.svg#rss"></use>
             </svg><span>Subscribe</span>
           </a>
         </p>
-      {{ config.author }}
-      {%- if config.author %}
+      {%- endif %}
+      {%- if config.extra.author %}
         <ul class="contact-list">
-          {% if config.author.name -%}
-            <li class="p-name">{{ config.author.name | escape }}</li>
+          {% if config.extra.author.name -%}
+            <li class="p-name">{{ config.extra.author.name | escape }}</li>
           {% endif -%}
-          {% if config.author.email -%}
-            <li><a class="u-email" href="mailto:{{ config.author.email }}">{{ config.author.email }}</a></li>
+          {% if config.extra.author.email -%}
+            <li><a class="u-email" href="mailto:{{ config.extra.author.email }}">{{ config.extra.author.email }}</a></li>
           {%- endif %}
         </ul>
       {%- endif %}

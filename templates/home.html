@@ -1,0 +1,66 @@
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+
+{#
+  {{ content }}
+
+  {% if site.paginate %}
+    {% assign posts = paginator.posts %}
+  {% else %}
+    {% assign posts = site.posts %}
+  {% endif %}
+  <pre>
+    {{ __tera_context }}
+  </pre>
+#}
+
+
+  {%- if section.pages -%}
+    {%- if page.list_title -%}
+      <h2 class="post-list-heading">{{ page.list_title }}</h2>
+    {%- endif -%}
+    <ul class="post-list">
+      {%- set date_format = config.minima.date_format | default(value="%b %-d, %Y") -%}
+      {%- for page in section.pages | reverse -%}
+      <li>
+        <span class="post-meta">{{ page.date | date(format=date_format) }}</span>
+        <h3>
+          <a class="post-link" href="{{ page.permalink }}">
+            {% if page.title %}
+              {{ page.title }}
+            {% else %}
+              {{ page.slug | replace(from="-", to=" ") | title }}
+            {% endif %}
+          </a>
+        </h3>
+
+        {%- if config.extra.show_summary -%}
+          {{ page.summary | safe }}
+        {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    {% if site.paginate %}
+      <div class="pager">
+        <ul class="pagination">
+        {%- if paginator.previous_page %}
+          <li><a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page }}</a></li>
+        {%- else %}
+          <li><div class="pager-edge">•</div></li>
+        {%- endif %}
+          <li><div class="current-page">{{ paginator.page }}</div></li>
+        {%- if paginator.next_page %}
+          <li><a href="{{ paginator.next_page_path | relative_url }}" class="next-page">{{ paginator.next_page }}</a></li>
+        {%- else %}
+          <li><div class="pager-edge">•</div></li>
+        {%- endif %}
+        </ul>
+      </div>
+    {%- endif %}
+
+  {%- endif -%}
+</div>
