@@ -3,28 +3,15 @@
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
 
+  {% set pages = paginator.pages | default(value = section.pages) %}
 
-{#
-  {{ content }}
-
-  {% if site.paginate %}
-    {% assign posts = paginator.posts %}
-  {% else %}
-    {% assign posts = site.posts %}
-  {% endif %}
-  <pre>
-    {{ __tera_context }}
-  </pre>
-#}
-
-
-  {%- if section.pages -%}
+  {%- if pages -%}
     {%- if page.list_title -%}
       <h2 class="post-list-heading">{{ page.list_title }}</h2>
     {%- endif -%}
     <ul class="post-list">
       {%- set date_format = config.extra.date_format | default(value="%b %-d, %Y") -%}
-      {%- for page in section.pages -%}
+      {%- for page in pages -%}
       <li>
         <span class="post-meta">{{ page.date | date(format=date_format) }}</span>
         <h3>
@@ -44,17 +31,17 @@
       {%- endfor -%}
     </ul>
 
-    {% if site.paginate %}
+    {% if paginator %}
       <div class="pager">
         <ul class="pagination">
-        {%- if paginator.previous_page %}
-          <li><a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page }}</a></li>
+        {%- if paginator.previous %}
+          <li><a href="{{ paginator.previous }}" class="previous-page">Previous</a></li>
         {%- else %}
           <li><div class="pager-edge">•</div></li>
         {%- endif %}
-          <li><div class="current-page">{{ paginator.page }}</div></li>
-        {%- if paginator.next_page %}
-          <li><a href="{{ paginator.next_page_path | relative_url }}" class="next-page">{{ paginator.next_page }}</a></li>
+          <li><div class="current-page">{{ paginator.current_index }}</div></li>
+        {%- if paginator.next %}
+          <li><a href="{{ paginator.next }}" class="next-page">Next</a></li>
         {%- else %}
           <li><div class="pager-edge">•</div></li>
         {%- endif %}
