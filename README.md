@@ -18,10 +18,6 @@ A port of [Jekyll]'s [minima] theme to [Zola] with focus on being *accurate*.
  * MIT License ([LICENSE-MIT](LICENSE-MIT) or
    http://opensource.org/licenses/MIT)
 
-The files [src/proto/fileformat.proto](src/proto/fileformat.proto) and
-[src/proto/osmformat.proto](src/proto/osmformat.proto) are copies from the
-[OSM-binary] project and are under the LGPLv3 license.
-
 ### Contribution
 
 Unless you explicitly state otherwise, any contribution intentionally submitted
