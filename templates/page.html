@@ -3,8 +3,8 @@
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    {%- set title = page.title | default(value=page.slug | replace(from="-", to=" ") | title) | escape %}
-    <h1 class="post-title p-name" itemprop="name headline">{{ title | escape }}</h1>
+    {%- set title = page.title | default(value=page.slug | replace(from="-", to=" ") | title) %}
+    <h1 class="post-title p-name" itemprop="name headline">{{ title }}</h1>
     <p class="post-meta">
       {%- set date_format = config.extra.date_format | default(value="%b %-d, %Y") -%}
       <time class="dt-published" datetime="{{ page.date | date(format="%+") }}" itemprop="datePublished">
